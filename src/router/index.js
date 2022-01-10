@@ -1,39 +1,20 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import index from '../pages/index'
-import menu from '../pages/menu'
-import shoppingCart from '../pages/shoppingCart'
-import user from '../pages/user'
-import goodsCont from '../pages/goodsCont'
+import { createRouter, createWebHistory } from "vue-router"
+import Home from '../pages/home.vue'
+import About from '../pages/about.vue'
 
+const routes = [
+    {
+        path: '/',
+        name: 'Home',
+        component: Home
+    },
+    {
+        path: '/about',
+        name: 'About',
+        component: About
+    },
+]
 
-Vue.use(Router)
-export default new Router({
-    routes: [
-        {
-            path: '/',
-            name: 'index',
-            component: index
-        },
-        {
-            path: '/menu',
-            name: 'menu',
-            component: menu
-        },
-        {
-            path: '/shoppingCart',
-            name: 'shoppingCart',
-            component: shoppingCart
-        },
-        {
-            path: '/user',
-            name: 'user',
-            component: user
-        },
-        {
-            path: '/goodsCont/:id.html',
-            name: 'goodsCont',
-            component: goodsCont
-        }
-    ]
-})
+const router = createRouter({ history: createWebHistory(), routes })
+
+export default router
